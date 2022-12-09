@@ -33,10 +33,16 @@ export const showFunction = () => {
     for (let i = 0; i < stordata.length; i += 1) {
       stordata[i].index = i + 1;
       localStorage.setItem('tasks', JSON.stringify(stordata));
+      let check = '';
+      if (stordata[i].completed === true) {
+        check = 'checked';
+      } else {
+        check = '';
+      }
       const temp = i;
       const Takstemplate = `
               <div class="task-item">
-                <input type="checkbox" class="task-check" id="task-check" name="task-check">
+                <input type="checkbox" class="task-check" name="task-check" ${check}>
                 <div class="task-ins">
                 <input id="${temp}" class="task-details t${temp}" type="text" value="${stordata[temp].description}" readonly>
                 <a href="#" class="task-option"><i data-id="el${temp}" class="fa fa-ellipsis-v el${temp}"></i></a>                
