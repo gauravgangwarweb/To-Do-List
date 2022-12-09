@@ -1,1 +1,32 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Wbpack Exercise</title><script defer="defer" src="main.js"></script></head><body><h1>Hello webpack!</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <script src="https://kit.fontawesome.com/b45a87b3cb.js" crossorigin="anonymous"></script>
+<script defer src="main.js"></script></head>
+<body>
+  <main>
+    <div class="list">
+      <div class="list-title">
+        <span class="title">To Do List</span>
+        <a href="#" id="refresh"><i class="fa fa-refresh"></i></a>
+      </div>
+      <div class="list-entry">
+        <form class="list-form">
+          <input class="input-task" type="text" name="task" id="task" minlength="3" placeholder="Add to you list..." required>
+          <button id="addBtn" class="btn-form" type="submit">↵</button>
+        </form>
+      </div>
+      <div class="list-block">
+      </div>
+      <div class="footer">
+        <a href="#" id="clear">Clear all completed</a>
+      </div>
+    </div>
+  </main>
+  <div class="empty"></div>
+</body>
+</html>
