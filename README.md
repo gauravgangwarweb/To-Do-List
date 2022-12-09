@@ -49,7 +49,7 @@
 
 > Here is a link to the live demo.
 
-- [Live Demo Link]()
+- [Live Demo Link](https://gauravgangwarweb.github.io/To-Do-List/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
