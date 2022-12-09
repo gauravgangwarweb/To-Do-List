@@ -2,6 +2,7 @@ import './style.css';
 import {
   addFunction, showFunction, removeFunction, stordata,
 } from './crud.js';
+import { compTask, removeCheckedTasks } from './interactive.js';
 
 const addBtn = document.getElementById('addBtn');
 
@@ -58,4 +59,17 @@ taskInps.forEach((inp) => {
     stordata[temp].description = inpValue.value;
     localStorage.setItem('tasks', JSON.stringify(stordata));
   });
+});
+
+// Interactiveness
+const checkBox = document.querySelectorAll('.task-check');
+checkBox.forEach((check, index) => {
+  check.addEventListener('change', () => {
+    compTask(index);
+  });
+});
+
+const clearAll = document.getElementById('clear');
+clearAll.addEventListener('click', () => {
+  removeCheckedTasks();
 });
