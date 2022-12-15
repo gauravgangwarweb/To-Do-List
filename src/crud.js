@@ -1,13 +1,8 @@
 const tasksarray = [];
-const Input = document.getElementById('task');
-const emptyDiv = document.querySelector('.empty');
 export const stordata = JSON.parse(localStorage.getItem('tasks'));
 
 // Addfunction
-export const addFunction = () => {
-  if (!Input.value) {
-    emptyDiv.innerText = 'Please give a input';
-  } else {
+export const addFunction = (Input) => {
     const model = {
       description: Input.value,
       completed: false,
@@ -20,8 +15,6 @@ export const addFunction = () => {
       stordata.push(model);
       localStorage.setItem('tasks', JSON.stringify(stordata));
     }
-    window.location.reload();
-  }
 };
 
 // Show function
@@ -55,7 +48,7 @@ export const showFunction = () => {
 };
 
 // Remove function
-export const removeFunction = (id) => {
-  stordata.splice(id, 1);
-  localStorage.setItem('tasks', JSON.stringify(stordata));
+export const removeFunction = (array, id) => {
+  array.splice(id, 1);
+  localStorage.setItem('tasks', JSON.stringify(array));
 };
