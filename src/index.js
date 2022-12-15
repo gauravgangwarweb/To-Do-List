@@ -15,7 +15,7 @@ addBtn.addEventListener('click', () => {
   const emptyDiv = document.querySelector('.empty');
   if (!Input.value) {
     emptyDiv.innerText = 'Please give a input';
-  }else {
+  } else {
     addFunction(Input);
     window.location.reload();
   }

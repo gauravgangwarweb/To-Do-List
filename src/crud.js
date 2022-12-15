@@ -3,18 +3,18 @@ export const stordata = JSON.parse(localStorage.getItem('tasks'));
 
 // Addfunction
 export const addFunction = (Input) => {
-    const model = {
-      description: Input.value,
-      completed: false,
-      index: 1,
-    };
-    if (!stordata) {
-      tasksarray.push(model);
-      localStorage.setItem('tasks', JSON.stringify(tasksarray));
-    } else {
-      stordata.push(model);
-      localStorage.setItem('tasks', JSON.stringify(stordata));
-    }
+  const model = {
+    description: Input.value,
+    completed: false,
+    index: 1,
+  };
+  if (!stordata) {
+    tasksarray.push(model);
+    localStorage.setItem('tasks', JSON.stringify(tasksarray));
+  } else {
+    stordata.push(model);
+    localStorage.setItem('tasks', JSON.stringify(stordata));
+  }
 };
 
 // Show function
