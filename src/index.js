@@ -10,7 +10,16 @@ const addBtn = document.getElementById('addBtn');
 showFunction();
 
 // Adding task
-addBtn.addEventListener('click', addFunction);
+addBtn.addEventListener('click', () => {
+  const Input = document.getElementById('task');
+  const emptyDiv = document.querySelector('.empty');
+  if (!Input.value) {
+    emptyDiv.innerText = 'Please give a input';
+  } else {
+    addFunction(Input);
+    window.location.reload();
+  }
+});
 
 // Removing task
 const remBtns = document.querySelectorAll('.fa');
@@ -19,7 +28,7 @@ remBtns.forEach((btn) => {
   btn.addEventListener('click', (e) => {
     let temp = e.currentTarget.dataset;
     temp = +temp.id[temp.id.length - 1];
-    removeFunction(temp);
+    removeFunction(stordata, temp);
     window.location.reload();
   });
 });

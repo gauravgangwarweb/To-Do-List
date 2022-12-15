@@ -4,7 +4,7 @@
   "description": "<a name=\"readme-top\"></a>",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --env=jsdom --coverage",
     "start": "webpack serve --open",
     "build": "webpack"
   },
@@ -12,12 +12,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.14.5",
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.7.2",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.26.0",
     "html-webpack-plugin": "^5.5.0",
+    "jest-environment-jsdom": "^29.3.1",
     "postcss": "^8.4.19",
     "style-loader": "^3.3.1",
     "stylelint": "^13.13.1",
@@ -29,6 +31,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "jest": "^29.3.1",
     "lodash": "^4.17.21"
   },
   "main": "webpack.config.js",
