@@ -1,3 +1,4 @@
+ /* eslint-disable */
 import { addFunction, removeFunction } from "../crud.js";
 
 describe('Testing add and remove functions', () => {
