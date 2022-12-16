@@ -1,6 +1,6 @@
 import './style.css';
 import {
-  addFunction, showFunction, removeFunction, stordata,
+  addFunction, showFunction, removeFunction, stordata, updateTask,
 } from './crud.js';
 import { compTask, removeCheckedTasks } from './interactive.js';
 
@@ -16,7 +16,12 @@ addBtn.addEventListener('click', () => {
   if (!Input.value) {
     emptyDiv.innerText = 'Please give a input';
   } else {
-    addFunction(Input);
+    const model = {
+      description: Input.value,
+      completed: false,
+      index: 1,
+    };
+    addFunction(model);
     window.location.reload();
   }
 });
@@ -65,8 +70,8 @@ taskInps.forEach((inp) => {
   inp.addEventListener('keyup', (f) => {
     const temp = f.currentTarget.id;
     const inpValue = document.getElementById(temp);
-    stordata[temp].description = inpValue.value;
-    localStorage.setItem('tasks', JSON.stringify(stordata));
+    const inValue = inpValue.value;
+    updateTask(inValue, stordata, temp);
   });
 });
 
@@ -74,11 +79,12 @@ taskInps.forEach((inp) => {
 const checkBox = document.querySelectorAll('.task-check');
 checkBox.forEach((check, index) => {
   check.addEventListener('change', () => {
-    compTask(index);
+    compTask(stordata, index);
   });
 });
 
 const clearAll = document.getElementById('clear');
 clearAll.addEventListener('click', () => {
-  removeCheckedTasks();
+  removeCheckedTasks(stordata);
+  window.location.reload();
 });

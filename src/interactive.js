@@ -1,19 +1,18 @@
 import { stordata } from './crud.js';
 
 // Setting description value
-export const compTask = (i) => {
-  if (stordata[i].completed === false) {
-    stordata[i].completed = true;
+export const compTask = (arr, i) => {
+  if (arr[i].completed === false) {
+    arr[i].completed = true;
     localStorage.setItem('tasks', JSON.stringify(stordata));
   } else {
-    stordata[i].completed = false;
+    arr[i].completed = false;
     localStorage.setItem('tasks', JSON.stringify(stordata));
   }
 };
 
 // Removing checked items
-export const removeCheckedTasks = () => {
-  const newArr = stordata.filter((t) => t.completed === false);
-  localStorage.setItem('tasks', JSON.stringify(newArr));
-  window.location.reload();
+export const removeCheckedTasks = (stordata) => {
+  stordata = stordata.filter((t) => t.completed === false);
+  localStorage.setItem('tasks', JSON.stringify(stordata));
 };
