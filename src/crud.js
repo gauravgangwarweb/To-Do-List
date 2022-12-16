@@ -2,12 +2,7 @@ const tasksarray = [];
 export const stordata = JSON.parse(localStorage.getItem('tasks'));
 
 // Addfunction
-export const addFunction = (Input) => {
-  const model = {
-    description: Input.value,
-    completed: false,
-    index: 1,
-  };
+export const addFunction = (model) => {
   if (!stordata) {
     tasksarray.push(model);
     localStorage.setItem('tasks', JSON.stringify(tasksarray));
@@ -51,4 +46,10 @@ export const showFunction = () => {
 export const removeFunction = (array, id) => {
   array.splice(id, 1);
   localStorage.setItem('tasks', JSON.stringify(array));
+};
+
+// Update tasks list
+export const updateTask = (inp, arr, i) => {
+  arr[i].description = inp;
+  localStorage.setItem('tasks', JSON.stringify(stordata));
 };
